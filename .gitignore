@@ -1,0 +1,17 @@
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Python cache
+__pycache__/
+
+# Logs
+*.log
+
+# Environment files
+.env
+
+# Build files
+/dist/
+/build/
+
