@@ -1,7 +1,7 @@
 # Multi-disease Forecasting Platform
 
 ## Overview
-The **Forecast App** is an end-to-end platform for forecasting multiple diseases using historical disease data and weather data. The application allows users to log in, upload disease datasets, retrieve relevant weather data dynamically, and generate forecasts. The system is containerized with Docker and deployed using Kubernetes, ensuring scalability and reliability.
+The **Multi-disease Forecasting Platform** is an end-to-end platform for forecasting multiple diseases using historical disease data and weather data. The application allows users to log in, upload disease datasets, retrieve relevant weather data dynamically, and generate forecasts. The system is containerized with Docker and deployed using Kubernetes, ensuring scalability and reliability.
 
 ## Features
 - **User Authentication** (JWT/OAuth2-based secure login)
