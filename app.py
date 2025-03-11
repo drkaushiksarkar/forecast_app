@@ -2,7 +2,7 @@ import hashlib
 import sys
 
 # Digital Watermark
-WATERMARK = "Dr. Kaushik Sarkar | Forecast App 2025"
+WATERMARK = "Developed by Dr. Kaushik Sarkar, Director-IMACS | Forecast App 2025"
 WATERMARK_HASH = hashlib.sha256(WATERMARK.encode()).hexdigest()
 
 def verify_watermark():
