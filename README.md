@@ -148,7 +148,7 @@ kubectl apply -f service.yaml
 ---
 
 ## Contributors
-- **Chief Scientist & Lead Architect – Dr. Kaushik Sarkar
+- **Chief Scientist & Lead Architect** – Dr. Kaushik Sarkar
 - **Contributors** - Malembe Sandrine Ebama, Maquines Sewe
 - **Partner Organization** - Task Force for Global Health
 - **Funding** - The Global Fund
