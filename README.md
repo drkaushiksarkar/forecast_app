@@ -20,38 +20,45 @@ The **Multi-disease Forecasting Platform** is an end-to-end platform for forecas
 ## Directory Structure
 ```
 forecast_app/
-├── .github/workflows/ci-cd.yml    # CI/CD pipeline configuration
-├── Dockerfile                     # Containerization of the backend
-├── app.py                          # Main Flask/FastAPI app entry point
-├── cds_downloader/                 # Weather data retrieval module
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml               # CI/CD pipeline configuration
+├── Dockerfile                      # Containerization of the backend
+├── app.py                          # Main FastAPI app entry point (with digital watermark at top)
+├── db.py                           # Database utility (postgres connections, insert/query functions)
+├── cds_downloader/                 # Weather data retrieval & processing module
 │   ├── __init__.py
-│   ├── country_utils.py            # Utility functions for country selection
-│   ├── downloader.py                # Fetching ERA5 climate data
-│   ├── process_grib.py              # Processing weather data files
+│   ├── country_utils.py            # Utility for bounding box, etc.
+│   ├── downloader.py               # Downloading ERA5 climate data in monthly chunks
+│   └── process_grib.py            # Processing downloaded GRIB files by subregion
 ├── dashboard/                      # React.js frontend for visualization
 │   ├── package.json
 │   ├── public/
 │   │   ├── favicon.ico
-│   │   ├── index.html
-│   ├── src/
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   ├── components/
-│   │   │   ├── Dashboard.js         # Main dashboard UI
-│   │   │   ├── Login.js             # User authentication UI
-│   │   ├── services/api.js          # API interaction service
-│   │   ├── styles/main.css          # Stylesheets
+│   │   └── index.html
+│   └── src/
+│       ├── App.js
+│       ├── index.js
+│       ├── components/
+│       │   ├── Dashboard.js        # Main dashboard UI
+│       │   ├── Login.js            # User login component
+│       │   └── ...                 # e.g., About.js, UploadDisease.js, etc.
+│       ├── services/
+│       │   └── api.js              # API interaction service
+│       └── styles/
+│           └── main.css            # Global/Module CSS
 ├── deployment.yaml                 # Kubernetes deployment configuration
-├── disease_processor.py            # Processing uploaded disease datasets
-├── modeller/                        # AI/ML forecasting module
+├── disease_processor.py            # Logic for parsing/merging disease data from CSV/API
+├── modeller/                       # AI/ML forecasting module
 │   ├── __init__.py
-│   ├── predict.py                   # Prediction logic
-│   ├── train.py                     # Model training
-│   ├── utils.py                     # Helper functions
-├── pvc.yaml                         # Persistent volume configuration
-├── requirements.txt                 # Python dependencies
-├── secret.yaml                      # Kubernetes secrets for secure API keys
-├── service.yaml                     # Kubernetes service configuration
+│   ├── predict.py                  # Code for running model inference
+│   ├── train.py                    # Model training logic
+│   └── utils.py                    # Helper functions (metrics, transformations, etc.)
+├── pvc.yaml                        # Persistent Volume Claim (K8s) for storing data
+├── requirements.txt                # Python dependencies
+├── secret.yaml                     # Kubernetes secrets (e.g., API keys, DB credentials)
+└── service.yaml                    # Kubernetes service configuration (exposing the app)
+              # Kubernetes service configuration
 ```
 
 ---
